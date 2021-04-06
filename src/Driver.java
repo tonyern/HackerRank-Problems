@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Driver {
     /**
@@ -48,9 +50,27 @@ public class Driver {
         return minDeletions;
     }
 
+    static int hashedEqualizeArray(int[] arr) {
+        Map<Integer, Integer> tracker = new HashMap<>();
+        int highestNumber = 1;
+
+        for (int i: arr) {
+            if (!tracker.containsKey(i)) {
+                tracker.put(i, 1);
+            } else {
+                tracker.put(i, tracker.get(i) + 1);
+                if (highestNumber < tracker.get(i)) {
+                    highestNumber = tracker.get(i);
+                }
+            }
+        }
+
+        return arr.length - highestNumber;
+    }
+
     public static void main(String[] args) {
-        int[] test = {10, 27, 9, 10, 100, 38, 30, 32, 45, 29, 27, 29, 32, 38, 32, 38, 14, 38, 29, 30, 63, 29, 63, 91, 54, 10, 63};
+        //int[] test = {10, 27, 9, 10, 100, 38, 30, 32, 45, 29, 27, 29, 32, 38, 32, 38, 14, 38, 29, 30, 63, 29, 63, 91, 54, 10, 63};
         //int[] test = {51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51};
-        System.out.println(equalizeArray(test));
+        //System.out.println(equalizeArray(test));
     }
 }
