@@ -1,8 +1,45 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Driver {
+    static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+        List<Integer> scores = new ArrayList<>();
+        int aScore = 0;
+        int bScore = 0;
+
+        for (int i = 0; i < a.size(); i++) {
+            if (a.get(i) > b.get(i)) {
+                aScore++;
+            }
+            if (a.get(i) < b.get(i)) {
+                bScore++;
+            }
+        }
+
+        scores.add(0, aScore);
+        scores.add(1, bScore);
+        return scores;
+    }
+
+    static int findMissingNumber(int[] ar) {
+        // Sort as we assume ar isn't sorted.
+        Arrays.sort(ar);
+
+        // Since it is missing then that spot would be sorted to 0 index.
+        int missingNumber = ar[0];
+
+        int counter = 0;
+        for (int i = 1; i < ar.length; i++) {
+            System.out.println("Counter = " + counter);
+            if (ar[i] != counter) {
+                missingNumber = counter;
+                break;
+            }
+            counter++;
+        }
+
+        return missingNumber;
+    }
+
     /**
      * Brute force attempt. Not very efficient performance and memory wise.
      * @param ar Array to find number of number pairs.
@@ -79,7 +116,7 @@ public class Driver {
 
         Arrays.sort(arr);
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println("");
@@ -133,11 +170,10 @@ public class Driver {
     }
 
     public static void main(String[] args) {
-        //int[] test = {10, 27, 9, 10, 100, 38, 30, 32, 45, 29, 27, 29, 32, 38, 32, 38, 14, 38, 29, 30, 63, 29, 63, 91, 54, 10, 63};
-        //int[] test = {51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51};
-        //System.out.println(equalizeArray(test));
-
-        int[] test = {1, 2, 1, 2, 1, 3, 2};
-        System.out.println(efficientSockMerchant(test));
+        Integer[] alice = {5, 6, 7};
+        Integer[] bob = {3, 6, 10};
+        List<Integer> a = Arrays.asList(alice);
+        List<Integer> b = Arrays.asList(bob);
+        System.out.println(compareTriplets(a, b));
     }
 }
