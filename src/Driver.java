@@ -1,6 +1,19 @@
 import java.util.*;
 
 public class Driver {
+    // Complete the whatFlavors function below.
+    static void whatFlavors(int[] cost, int money) {
+        Map<Integer, Integer> flavors = new HashMap<>();
+
+        for (int i = 0; i < cost.length; i++) {
+            if (!flavors.containsKey(cost[i])) {
+                flavors.put(money - cost[i], i + 1);
+            } else {
+                System.out.println(flavors.get(cost[i]) + " " + (i + 1));
+            }
+        }
+    }
+
     static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
         List<Integer> scores = new ArrayList<>();
         int aScore = 0;
