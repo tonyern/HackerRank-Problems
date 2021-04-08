@@ -170,10 +170,12 @@ public class Driver {
     }
 
     public static void main(String[] args) {
-        Integer[] alice = {5, 6, 7};
+        /*Integer[] alice = {5, 6, 7};
         Integer[] bob = {3, 6, 10};
         List<Integer> a = Arrays.asList(alice);
         List<Integer> b = Arrays.asList(bob);
-        System.out.println(compareTriplets(a, b));
+        System.out.println(compareTriplets(a, b));*/
+
+        Employee tony = new Employee("NGTO201904001");
     }
 }
