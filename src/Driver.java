@@ -1,6 +1,20 @@
 import java.util.*;
 
 public class Driver {
+    static int[] everyThirds(int[] arr) {
+        //System.out.println("New Size = " + (int) Math.floor(arr.length / 3));
+        int[] newArr = new int[(int) Math.floor((arr.length / 3))];
+
+        int newArrIndex = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if ((i + 1) % 3 == 0) {
+                newArr[newArrIndex++] = arr[i];
+            }
+        }
+
+        return newArr;
+    }
+
     // Complete the whatFlavors function below.
     static void whatFlavors(int[] cost, int money) {
         Map<Integer, Integer> flavors = new HashMap<>();
@@ -183,12 +197,11 @@ public class Driver {
     }
 
     public static void main(String[] args) {
-        /*Integer[] alice = {5, 6, 7};
-        Integer[] bob = {3, 6, 10};
-        List<Integer> a = Arrays.asList(alice);
-        List<Integer> b = Arrays.asList(bob);
-        System.out.println(compareTriplets(a, b));*/
-
-        Employee tony = new Employee("NGTO201904001");
+        System.out.println("Test Environment");
+        int[] test = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+        int[] testing = everyThirds(test);
+        for (int i: testing) {
+            System.out.println(i);
+        }
     }
 }
