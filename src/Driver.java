@@ -7,21 +7,14 @@ public class Driver {
             return false;
         }
 
-        String numberString = String.valueOf(number);
-        char[] n1 = new char[numberString.length()];
-        char[] n2 = new char[numberString.length()];
+        char[] testNumber = String.valueOf(number).toCharArray();
 
-        for (int i = 0; i < numberString.length(); i++) {
-            n1[i] = numberString.charAt(i);
-        }
-        for (int i = numberString.length() - 1; i >= 0; i--) {
-            n2[i] = numberString.charAt(i);
-        }
-
-        for (int i = 0; i < numberString.length(); i++) {
-            if (n1[i] != n2[i]) {
+        int j = testNumber.length - 1;
+        for (int i = 0; i < testNumber.length; i++) {
+            if (Character.compare(testNumber[i], testNumber[j]) != 0) {
                 return false;
             }
+            j--;
         }
 
         return true;
@@ -230,6 +223,6 @@ public class Driver {
             System.out.println(i);
         }*/
 
-        System.out.println(isPalindrome(121));
+        System.out.println(isPalindrome(123321));
     }
 }
