@@ -1,6 +1,32 @@
 import java.util.*;
 
 public class Driver {
+    static boolean isPalindrome(int number) {
+        // Negative numbers cannot be palindromes.
+        if (number < 0) {
+            return false;
+        }
+
+        String numberString = String.valueOf(number);
+        char[] n1 = new char[numberString.length()];
+        char[] n2 = new char[numberString.length()];
+
+        for (int i = 0; i < numberString.length(); i++) {
+            n1[i] = numberString.charAt(i);
+        }
+        for (int i = numberString.length() - 1; i >= 0; i--) {
+            n2[i] = numberString.charAt(i);
+        }
+
+        for (int i = 0; i < numberString.length(); i++) {
+            if (n1[i] != n2[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     static int[] everyThirds(int[] arr) {
         //System.out.println("New Size = " + (int) Math.floor(arr.length / 3));
         int[] newArr = new int[(int) Math.floor((arr.length / 3))];
@@ -198,10 +224,12 @@ public class Driver {
 
     public static void main(String[] args) {
         System.out.println("Test Environment");
-        int[] test = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+        /*int[] test = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
         int[] testing = everyThirds(test);
         for (int i: testing) {
             System.out.println(i);
-        }
+        }*/
+
+        System.out.println(isPalindrome(121));
     }
 }
