@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Driver {
-    static boolean isPalindrome(String word) {
+    static boolean isStringPalindrome(String word) {
         char testString[] = word.toCharArray();
 
         int j = testString.length - 1;
@@ -234,6 +234,6 @@ public class Driver {
             System.out.println(i);
         }*/
 
-        System.out.println(isPalindrome("Tony"));
+        System.out.println(isStringPalindrome("Tony"));
     }
 }
