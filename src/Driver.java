@@ -1,6 +1,23 @@
 import java.util.*;
 
 public class Driver {
+    static boolean isPalindrome(String word) {
+        // Checking for empty string. Return true as no characters to test.
+        if (word.isEmpty()) {
+            return true;
+        }
+        // One character string. Base case for recursion to prevent infinite loop.
+        if (word.length() == 1) {
+            return true;
+        }
+
+        if (Character.compare(word.charAt(0), word.charAt(word.length() - 1)) == 0) {
+            return isPalindrome(word.substring(1, word.length() - 1));
+        }
+
+        return false;
+    }
+
     static boolean isStringPalindrome(String word) {
         char testString[] = word.toCharArray();
 
@@ -14,6 +31,26 @@ public class Driver {
         }
 
         return true;
+    }
+
+    // TODO Algorithm not correct for some cases.
+    static boolean isNumberPalindromeRecursion(int number) {
+        String testNumber = String.valueOf(number);
+
+        if (testNumber.isEmpty()) {
+            return true;
+        }
+        if (testNumber.length() == 1) {
+            return true;
+        }
+
+        if (Character.compare(testNumber.charAt(0), testNumber.charAt(testNumber.length() - 1)) == 0) {
+            String newNumber = testNumber.substring(1, testNumber.length() - 1);
+            int passNumber = Integer.parseInt(newNumber);
+            return isNumberPalindromeRecursion(passNumber);
+        }
+
+        return false;
     }
 
     static boolean isNumberPalindrome(int number) {
@@ -234,6 +271,7 @@ public class Driver {
             System.out.println(i);
         }*/
 
-        System.out.println(isStringPalindrome("Tony"));
+        //System.out.println(isNumberPalindrome(1011));
+        //System.out.println(isNumberPalindromeRecursion(1011));
     }
 }
