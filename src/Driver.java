@@ -1,6 +1,21 @@
 import java.util.*;
 
 public class Driver {
+    static boolean isPalindrome(String word) {
+        char testString[] = word.toCharArray();
+
+        int j = testString.length - 1;
+        for (int i = 0; i < testString.length; i++) {
+            if (Character.compare(testString[i], testString[j]) != 0) {
+                return false;
+            }
+
+            j--;
+        }
+
+        return true;
+    }
+
     static boolean isNumberPalindrome(int number) {
         char[] testNumber = String.valueOf(number).toCharArray();
 
@@ -219,6 +234,6 @@ public class Driver {
             System.out.println(i);
         }*/
 
-        System.out.println(isNumberPalindrome(-19));
+        System.out.println(isPalindrome("Tony"));
     }
 }
