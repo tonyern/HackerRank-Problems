@@ -1,12 +1,7 @@
 import java.util.*;
 
 public class Driver {
-    static boolean isPalindrome(int number) {
-        // Negative numbers cannot be palindromes.
-        if (number < 0) {
-            return false;
-        }
-
+    static boolean isNumberPalindrome(int number) {
         char[] testNumber = String.valueOf(number).toCharArray();
 
         int j = testNumber.length - 1;
@@ -14,6 +9,7 @@ public class Driver {
             if (Character.compare(testNumber[i], testNumber[j]) != 0) {
                 return false;
             }
+
             j--;
         }
 
@@ -223,6 +219,6 @@ public class Driver {
             System.out.println(i);
         }*/
 
-        System.out.println(isPalindrome(123321));
+        System.out.println(isNumberPalindrome(-19));
     }
 }
